@@ -1,0 +1,14 @@
+/* You can add global styles to this file, and also import other style files */
+@use './app/assets/styles/variables' as *;
+@use './app/assets/styles/mixins' as *;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background: radial-gradient(circle, rgba(178,205,221,1) 0%, rgba(14,134,212,1) 45%);
+  margin: 0;
+}

@@ -1,0 +1,115 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.campaigns {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    color: $text-color-main;
+    margin-bottom: 20px;
+  }
+
+  &__new-btn {
+    background-color: $color-success;
+    color: $text-color-main;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    transition: all ease 0.6s;
+
+
+    &:hover {
+      transform: scale(105%);
+      filter: brightness(110%);
+    }
+
+    &:active {
+      filter: brightness(90%);
+      transform: scale(95%);
+    }
+
+  }
+
+  &__wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    padding: 10px;
+
+    @include on-tablet {
+      max-width: 805px;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: stretch;
+    }
+  }
+
+  .campaign {
+    background-color: $campaign-bg-color;
+    box-sizing: border-box;
+    padding: 10px;
+    color: $text-color-main;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 7px;
+    width: 250px;
+    border: 1px solid $campaign-border-color;
+    border-radius: 15px;
+    box-shadow: 0px 12px 7px -1px $campaign-shadow;
+    transition: all ease 0.6s;
+
+    &:hover {
+      box-shadow: 0px 12px 13px 16px $campaign-shadow;
+      transform: scale(105%);
+      filter: brightness(110%);
+    }
+
+
+
+
+    &__title {
+      margin: 0 auto;
+      margin-bottom: 4px;
+    }
+
+    &__btns {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    &__btn {
+      display: block;
+      color: $text-color-main;
+      border: none;
+      border-radius: 5px;
+      min-width: 103px;
+      padding: 8px;
+      text-align: center;
+      cursor: pointer;
+      transition: all ease 0.6s;
+
+
+      &:active {
+        filter: brightness(90%);
+        transform: scale(95%);
+      }
+
+      &--green {
+        background-color: $color-success;
+      }
+
+      &--red {
+        background-color: $color-danger;
+      }
+    }
+  }
+}

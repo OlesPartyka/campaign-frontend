@@ -1,0 +1,47 @@
+<form [formGroup]="campaignForm" (ngSubmit)="saveCampaign()" class="form">
+  <div class="form__group" [class.error]="campaignForm.controls['name'].invalid && campaignForm.controls['name'].touched">
+    <label>Campaign name</label>
+    <input formControlName="name" required />
+    <span *ngIf="campaignForm.controls['name'].invalid && campaignForm.controls['name'].touched">Enter compaign name</span>
+  </div>
+
+  <div class="form__group" [class.error]="campaignForm.controls['keywords'].invalid && campaignForm.controls['keywords'].touched">
+    <label>Keywords</label>
+    <input formControlName="keywords" required />
+    <span *ngIf="campaignForm.controls['keywords'].invalid && campaignForm.controls['keywords'].touched">Enter keywords</span>
+  </div>
+
+  <div class="form__group" [class.error]="campaignForm.controls['bidAmount'].invalid && campaignForm.controls['bidAmount'].touched">
+    <label>Bid amount</label>
+    <input type="number" formControlName="bidAmount" required />
+    <span *ngIf="campaignForm.controls['bidAmount'].invalid && campaignForm.controls['bidAmount'].touched">Enter bid amount(≥ 1)</span>
+  </div>
+
+  <div class="form__group" [class.error]="campaignForm.controls['fund'].invalid && campaignForm.controls['fund'].touched">
+    <label>Campaign fund</label>
+    <input type="number" formControlName="fund" required />
+    <span *ngIf="campaignForm.controls['fund'].invalid && campaignForm.controls['fund'].touched">Enter campaign fund</span>
+  </div>
+
+  <div class="form__group form__group--check">
+    <label>Status active</label>
+    <input type="checkbox" formControlName="status" />
+  </div>
+
+  <div class="form__group" [class.error]="campaignForm.controls['town'].invalid && campaignForm.controls['town'].touched">
+    <label>Town</label>
+    <input formControlName="town" required />
+    <span *ngIf="campaignForm.controls['town'].invalid && campaignForm.controls['town'].touched">Enter town</span>
+  </div>
+
+  <div class="form__group" [class.error]="campaignForm.controls['radius'].invalid && campaignForm.controls['radius'].touched">
+    <label>Radius (km)</label>
+    <input type="number" formControlName="radius" required />
+    <span *ngIf="campaignForm.controls['radius'].invalid && campaignForm.controls['radius'].touched">Enter the radius</span>
+  </div>
+
+  <div class="form__btns">
+    <button class="form__btn form__btn--green" type="submit">{{ isEditMode ? 'Update' : 'Create' }}</button>
+    <button class="form__btn form__btn--red" type="button" (click)="cancel()">Cancel</button>
+  </div>
+</form>

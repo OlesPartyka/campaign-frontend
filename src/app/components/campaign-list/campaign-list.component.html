@@ -1,0 +1,29 @@
+<section class="campaigns">
+  <h2 class="campaigns__title">List of campaigns</h2>
+  <button routerLink="/campaign/new" class="campaigns__new-btn">Create a company</button>
+
+  <!-- Вывод ошибки -->
+  <p *ngIf="errorMessage" class="error">{{ errorMessage }}</p>
+
+  <div class="campaigns__wrapper">
+    <article *ngFor="let campaign of campaigns" class="campaign">
+      <h3 class="campaign__title">{{ campaign.name }}</h3>
+      <p><strong>Keywords:</strong> {{ campaign.keywords.join(', ') }}</p>
+      <p><strong>Bid amount:</strong> {{ campaign.bidAmount }} $</p>
+      <p><strong>Campaign fund:</strong> {{ campaign.fund }} $</p>
+      <p><strong>Status:</strong> {{ campaign.status ? 'Active' : 'Not active' }}</p>
+      <p><strong>Town:</strong> {{ campaign.town }}</p>
+      <p><strong>Radius:</strong> {{ campaign.radius }} km</p>
+
+      <div class="campaign__btns">
+        <button (click)="deleteCampaign(campaign._id)" class="campaign__btn campaign__btn--red">
+          Delete
+        </button>
+
+        <button [routerLink]="['/campaign', campaign._id]" class="campaign__btn campaign__btn--green">
+          Edit
+        </button>
+      </div>
+    </article>
+  </div>
+</section>

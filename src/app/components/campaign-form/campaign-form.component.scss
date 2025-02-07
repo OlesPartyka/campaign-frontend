@@ -1,0 +1,93 @@
+@use '../../assets/styles/variables' as *;
+@use '../../assets/styles/mixins' as *;
+
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  gap: 15px;
+  color: $text-color-main;
+  margin: 0 auto;
+
+  @include on-tablet {
+    max-width: 600px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    font-size: 18px;
+
+    &--check {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    input {
+      padding: 10px;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      color: $input-text-color;
+      font-weight: 500;
+    }
+
+    input.ng-invalid.ng-touched {
+      border: 1px solid $color-danger;
+      background-color: $input-bg;
+    }
+
+    span {
+      color: $color-danger;
+      font-size: 14px;
+    }
+  }
+
+  &__btns {
+    display: flex;
+    justify-content: space-between;
+
+    @include on-tablet {
+      justify-content: space-around;
+    }
+  }
+
+  &__btn {
+    display: block;
+    color: $text-color-main;
+    border: none;
+    border-radius: 5px;
+    min-width: 103px;
+    padding: 8px;
+    text-align: center;
+    cursor: pointer;
+    transition: all ease 0.6s;
+
+    @include on-tablet {
+      padding: 18px;
+      min-width: 200px;
+    }
+
+    &:hover {
+      transform: scale(105%);
+      filter: brightness(110%);
+    }
+
+
+    &:active {
+      filter: brightness(90%);
+      transform: scale(95%);
+    }
+
+    &--green {
+      background-color: $color-success;
+    }
+
+    &--red {
+      background-color: $color-danger;
+    }
+  }
+}
+
